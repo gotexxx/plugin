@@ -1,0 +1,8 @@
+{
+    "alpha.popup.detail.base": {
+        "popup": [
+            "name",
+            "validUntil"
+        ]
+    }
+}

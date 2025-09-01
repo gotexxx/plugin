@@ -1,0 +1,87 @@
+{% block alpha_popup_detail %}
+    <sw-page class="alpha-popup-detail">
+        {% block alpha_popup_detail_header %}
+            <template #smart-bar-header>
+                <h2>{{ placeholder(popup, 'name', $tc('alpha-popup.detail.header.titleEdit')) }}</h2>
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_detail_actions %}
+            <template #smart-bar-actions>
+                {% block alpha_popup_detail_actions_abort %}
+                    <sw-button :disabled="popup != null && popup.isLoading" v-tooltip.bottom="tooltipCancel" @click="onCancel">
+                        {{ $tc('alpha-popup.detail.header.buttonCancel') }}
+                    </sw-button>
+                {% endblock %}
+
+                {% block alpha_popup_detail_actions_save %}
+                    <sw-button-process
+                        class="alpha-popup-detail__save-action"
+                        v-model:value="isSaveSuccessful"
+                        :is-loading="isLoading"
+                        variant="primary"
+                        v-tooltip.bottom="tooltipSave"
+                        @click.prevent="onSave">
+                        {{ $tc('alpha-popup.detail.header.buttonSave') }}
+                    </sw-button-process>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_detail_language_switch %}
+            <template #language-switch>
+                <sw-language-switch
+                    :disabled="!popupId"
+                    @on-change="onChangeLanguage"
+                    :save-changes-function="saveOnLanguageChange"
+                    :abort-change-function="abortOnLanguageChange">
+                </sw-language-switch>
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_detail_content %}
+            <template #content>
+                <sw-card-view>
+                    {% block alpha_popup_detail_content_language_info %}
+                        <sw-language-info
+                            :entity-description="placeholder(popup, 'name', $tc('alpha-popup.detail.header.titleCreate'))"
+                            :is-new-entity="!popupId">
+                        </sw-language-info>
+                    {% endblock %}
+
+                    {% block alpha_popup_detail_content_tabs %}
+                        <sw-tabs position-identifier="alpha-popup-detail-page__tabs" class="alpha-popup-detail-page__tabs">
+                            {% block alpha_popup_detail_content_tabs_general %}
+                                <sw-tabs-item :route="{ name: 'alpha.popup.detail.base', params: { id: $route.params.id } }"
+                                              :title="$tc('alpha-popup.detail.tabs.tabGeneral')"
+                                              :disabled="popupId ? false : true">
+                                    {{ $tc('alpha-popup.detail.tabs.tabGeneral') }}
+                                </sw-tabs-item>
+                            {% endblock %}
+
+                            {% block alpha_popup_detail_content_tabs_location_restrictions %}
+                                <sw-tabs-item :route="{ name: 'alpha.popup.detail.locations', params: { id: $route.params.id } }"
+                                              :title="$tc('alpha-popup.detail.tabs.tabLocations')"
+                                              :disabled="popupId ? false : true">
+                                    {{ $tc('alpha-popup.detail.tabs.tabLocations') }}
+                                </sw-tabs-item>
+                            {% endblock %}
+
+                            {% block alpha_popup_detail_content_tabs_condition_restrictions %}
+                                <sw-tabs-item :route="{ name: 'alpha.popup.detail.conditions', params: { id: $route.params.id } }"
+                                              :title="$tc('alpha-popup.detail.tabs.tabConditions')"
+                                              :disabled="popupId ? false : true">
+                                    {{ $tc('alpha-popup.detail.tabs.tabConditions') }}
+                                </sw-tabs-item>
+                            {% endblock %}
+                        </sw-tabs>
+                    {% endblock %}
+
+                    {% block sw_product_detail_content_view %}
+                    <router-view :popup="popup"></router-view>
+                    {% endblock %}
+                </sw-card-view>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

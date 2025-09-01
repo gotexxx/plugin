@@ -1,0 +1,118 @@
+{% block alpha_popup_list %}
+    <sw-page class="alpha-popup-list">
+
+        {% block sw_order_list_search_bar %}
+            <template #search-bar>
+                <sw-search-bar initial-search-type="popup"
+                               :placeholder="$tc('alpha-popup.list.placeholderSearchBar')"
+                               :initial-search="term"
+                               @search="onSearch">
+                </sw-search-bar>
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_list_smart_bar_header %}
+            <template #smart-bar-header>
+                {% block alpha_popup_list_smart_bar_header_title %}
+                    <h2>
+                        {% block alpha_popup_list_smart_bar_header_title_text %}
+                            {{ $tc('alpha-popup.list.textTitle') }}
+                        {% endblock %}
+
+                        {% block alpha_popup_list_smart_bar_header_amount %}
+                            <span v-if="!isLoading" class="sw-page__smart-bar-amount">
+                            ({{ total }})
+                            </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_list_smart_bar_actions %}
+            <template #smart-bar-actions>
+                {% block alpha_popup_list_smart_bar_actions_add %}
+                    <sw-button :router-link="{ name: 'alpha.popup.create' }" variant="primary">
+                        {{ $tc('alpha-popup.list.buttonAddPopup') }}
+                    </sw-button>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block alpha_popup_list_language_switch %}
+            <sw-language-switch #language-switch @on-change="onChangeLanguage"></sw-language-switch>
+        {% endblock %}
+
+        <template #content>
+            {% block alpha_popup_list_content %}
+                <div class="alpha-popup-list__content">
+                    {% block alpha_popup_list_grid %}
+                        <sw-entity-listing :repository="popupRepository"
+                                           :columns="popupColumns"
+                                           :items="popups"
+                                           detail-route="alpha.popup.detail"
+                                           :is-loading="isLoading"
+                                           allow-inline-edit
+                                           allow-column-edit
+                                           full-page>
+
+                            {% block alpha_popup_list_grid_columns %}
+                                {% block alpha_popup_list_grid_columns_active %}
+                                    <template #column-active="{ item }">
+                                        <sw-icon
+                                                v-if="item.active"
+                                                name="regular-checkmark-xs"
+                                                small
+                                                class="is--active"
+                                        />
+                                        <sw-icon
+                                                v-else
+                                                name="regular-times-s"
+                                                small
+                                                class="is--inactive"
+                                        />
+                                    </template>
+                                {% endblock %}
+
+                                {% block alpha_popup_list_grid_columns_valid_from %}
+                                    <template #column-validFrom="{ item }">
+                                        {{ dateFilter(item.validFrom, { hour: '2-digit', minute: '2-digit' }) }}
+                                    </template>
+                                {% endblock %}
+
+                                {% block alpha_popup_list_grid_columns_valid_until %}
+                                    <template #column-validUntil="{ item }">
+                                        {{ dateFilter(item.validUntil, { hour: '2-digit', minute: '2-digit' }) }}
+                                    </template>
+                                {% endblock %}
+                            {% endblock %}
+
+                            <template #delete-action="{ item, showDelete }">
+                                <sw-context-menu-item @click="showDelete(item.id)" :disabled="item.hasOrders" variant="danger">
+                                    {{ $tc('global.default.delete') }}
+                                </sw-context-menu-item>
+                            </template>
+
+                        </sw-entity-listing>
+                    {% endblock %}
+
+                    {% block alpha_popup_list_empty_state %}
+                        <sw-empty-state v-if="!isLoading && !total" :title="$tc('alpha-popup.list.messageEmpty')"></sw-empty-state>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </template>
+
+        {% block alpha_popup_list_sidebar %}
+            <sw-sidebar #sidebar>
+                {% block alpha_popup_list_sidebar_refresh %}
+                    <sw-sidebar-item
+                            icon="regular-undo"
+                            :title="$tc('alpha-popup.list.titleSidebarItemRefresh')"
+                            @click="onRefresh">
+                    </sw-sidebar-item>
+                {% endblock %}
+            </sw-sidebar>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

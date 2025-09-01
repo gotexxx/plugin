@@ -1,0 +1,11 @@
+{% block alpha_popup_detail_base %}
+    <div class="alpha-popup-detail-base">
+        {% block alpha_popup_detail_base_basic_info_card %}
+            <sw-card position-identifier="alpha-popup-detail-card" :title="$tc('alpha-popup.detail.main.general.cardTitlePopupInfo')" :is-loading="!$attrs.popup">
+                {% block alpha_popup_detail_base_basic_info_form %}
+                    <alpha-popup-basic-form :popup="$attrs.popup"></alpha-popup-basic-form>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+    </div>
+{% endblock %}

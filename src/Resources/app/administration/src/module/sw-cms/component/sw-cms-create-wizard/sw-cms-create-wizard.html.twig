@@ -1,0 +1,8 @@
+{% block sw_cms_create_wizard_page_type_options %}
+    {% parent %}
+
+    <div class="sw-cms-create-wizard__page-type" @click="onPageTypeSelect('alpha_popup')">
+        <sw-icon name="regular-gift" size="24"/>
+        <p>{{ $tc('alpha-popup.detail.main.general.cms.pageTypePopupLabel') }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{# <h1>test</h1> #}
+{% block alpha_popup_detail_products %}
+    <div class="alpha_popup-detail-products">
+        {% block alpha_popup_detail_product_assignment %}
+            <sw-many-to-many-assignment-card
+                    title="Auf Produkte Begrenzen"
+                    :entity-collection="popup.products"
+                    :columns="productColumns"
+                    :is-loading="isLoading"
+                    :local-mode="popup.isNew()"
+                    :criteria="productCriteria"
+                    select-label="Produkt auswählen"
+                    placeholder="Produkt"
+            >
+
+            </sw-many-to-many-assignment-card>
+        {% endblock %}
+        {% block alpha_popup_detail_product_steam_assignment %}
+            <sw-many-to-many-assignment-card
+                    title="Auf Dynamische Produktgruppen Begrenzen"
+                    :entity-collection="popup.productStreams"
+                    :columns="productStreamColumns"
+                    :is-loading="isLoading"
+                    :local-mode="popup.isNew()"
+                    :criteria="productStreamCriteria"
+                    select-label="Dynamische Produktgruppe auswählen"
+                    placeholder="Dynamische Produktgruppe"
+            >
+
+            </sw-many-to-many-assignment-card>
+        {% endblock %}
+    </div>
+{% endblock %}

@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Alpha\Popup\Core\Content\Category\CategoryExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Product\ProductExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\ProductStream\ProductStreamExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Checkout\Customer\CustomerExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Rule\RuleExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\PopupDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup" />
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupCategory\PopupCategoryDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_categories"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupSalesChannel\PopupSalesChannelDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_sales_channel"/>
+        </service>
+
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupOrderRule\PopupOrderRuleDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_order_rule"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupCartRule\PopupCartRuleDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_cart_rule"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupPersonaCustomer\PopupPersonaCustomerDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_persona_customer"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupPersonaRule\PopupPersonaRuleDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_persona_rule"/>
+        </service>
+
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupProduct\PopupProductDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_products"/>
+        </service>
+        <service id="Alpha\Popup\Core\Content\Popup\Aggregate\PopupProductStream\PopupProductStreamDefinition">
+            <tag name="shopware.entity.definition" entity="alpha_popup_product_streams"/>
+        </service>
+        <!-- Add Cookie subscriber-->
+        <service id="Alpha\Popup\Framework\Cookie\CustomCookieProvider"
+                 decorates="Shopware\Storefront\Framework\Cookie\CookieProviderInterface">
+            <argument type="service"
+                      id="Alpha\Popup\Framework\Cookie\CustomCookieProvider.inner" />
+        </service>
+
+        <!--Add Popup to Footer Template Extension-->
+        <service id="Alpha\Popup\Subscriber\Storefront\HeaderSubscriber">
+            <argument type="service" id="alpha_popup.repository"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Shopware\Core\Content\Cms\SalesChannel\SalesChannelCmsPageLoader"/>
+            <argument type="service" id="Shopware\Core\Checkout\Cart\CartRuleLoader"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="Alpha\Popup\Resources\snippet\en_GB\SnippetFile_en_GB">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+
+        <service id="Alpha\Popup\Resources\snippet\de_DE\SnippetFile_de_DE">
+            <tag name="shopware.snippet.file" priority="100"/>
+        </service>
+    </services>
+</container>

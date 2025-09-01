@@ -1,0 +1,238 @@
+{
+    "alpha-popup": {
+        "general": {
+            "description": "Verwaltung von Popups",
+            "information": "Informationen",
+            "language": "Sprache",
+            "salutation": "Anrede",
+            "salesChannel": "Verkaufskanal",
+            "buttonSave": "Speichern",
+            "mainMenuItemGeneral": "Popups",
+            "placeholderSearchBarSnippets": "Durchsuche alle Popups ...",
+            "tags": "Tags",
+            "labelAddNewRule": "Neue Regel erstellen"
+        },
+        "list": {
+            "textTitle": "Popups",
+            "buttonAddPopup": "Popup anlegen",
+            "buttonCancel": "Abbrechen",
+            "buttonDelete": "Löschen",
+            "columnActive": "Aktiv",
+            "columnName": "Name",
+            "cmsPageLayoutName": "Layout Name",
+            "columnValidFrom": "Aktiv von",
+            "columnValidUntil": "Aktiv bis",
+            "contextMenuDelete": "Löschen",
+            "contextMenuDuplicate": "Duplizieren",
+            "contextMenuEdit": "Bearbeiten",
+            "messageEmpty": "Noch keine Popups",
+            "modalTitleDelete": "Popup löschen",
+            "placeholderSearchBar": "Durchsuche alle Popups ...",
+            "textDeleteConfirm": "Möchtest Du die Popup \"{name}\" wirklich löschen?",
+            "titleSidebarItemRefresh": "Aktualisieren"
+        },
+        "detail": {
+            "header": {
+                "titleCreate": "Neue Popup",
+                "titleEdit": "Popup",
+                "buttonCancel": "Abbrechen",
+                "buttonSave": "Speichern",
+                "titleSaveSuccess": "Erfolg",
+                "messageSaveSuccess": "Die Popup \"{name}\" wurde gespeichert."
+            },
+            "tabs": {
+                "tabGeneral": "Allgemein",
+                "tabLocations": "Bereiche",
+                "tabConditions": "Bedingungen",
+                "tabDiscounts": "Rabatte"
+            },
+            "main": {
+                "general": {
+                    "cardTitlePopupInfo": "Einstellungen",
+                    "cardTitleCode": "Aktionscodes",
+                    "labelTitle": "Name",
+                    "placeholderName": "Gib einen Namen ein ...",
+                    "labelPopupWidth": "Breite des Popups",
+                    "labelPopupMaxWidth": "Maximale Breite des Popups",
+                    "placeholderPopupWidth": "1200px",
+                    "placeholderPopupMaxWidth": "400px e.g.",
+                    "labelActive": "Aktiv",
+                    "labelActiveNavigation": "Aktiv auf Navigationsseiten",
+                    "labelActiveProduct": "Aktiv auf Produktseiten",
+                    "labelActiveCheckout": "Aktiv auf Warenkorb- & Bestellungsseiten ",
+                    "labelActiveLogin": "Aktiv auf Login Seite",
+                    "labelActiveRegister": "Aktiv auf Register Seite",
+                    "labelActiveConfirmCheckout": "Aktiv auf Bestellung Bestätigungsseite",
+                    "labelActiveFinishCheckout": "Aktiv auf Bestellabschlussseite",
+                    "labelMaxRedemptionsGlobal": "Anzahl insgesamt",
+                    "labelMaxRedemptionsPerCustomer": "Anzahl pro Kunde",
+                    "labelPopupExclusions": "Nicht kombinieren mit",
+                    "placeholderPopupExclusions": "Popup hinzufügen ...",
+                    "labelSettings": "Einstellungen",
+                    "labelTrigger": "Auslöser",
+                    "labelVisualSettings": "Style",
+                    "labelJsEvents": "js Events",
+                    "labelElementSelector": "Element Selector",
+                    "cookie": {
+                        "title": "Zeit bis zum nächsten Anzeigen",
+                        "cookieExpireTime": "Zeit bis zum nächsten Anzeigen",
+                        "none": "keine",
+                        "oneHour": "1 Stunde",
+                        "sixHours": "6 Stunden",
+                        "twelveHours": "12 Stunden",
+                        "oneDay": "1 Tag",
+                        "twoDay": "2 Tage",
+                        "oneWeek": "7 Tage",
+                        "twoWeeks": "14 Tage",
+                        "oneMonth": "1 Monat",
+                        "indefinite": "unendlich"
+                    },
+                    "codes": {
+                        "card": "Aktionscodes",
+                        "labelCode": "Allgemeiner Aktionscode",
+                        "helpTextIndividual": "Ein allgemeiner Aktionscode kann nicht gleichzeitig mit individuellen Codes verwendet werden.",
+                        "placeholderCode": "Gib einen Code für die Popup ein ...",
+                        "switchUseCodes": "Aktionscodes verwenden",
+                        "switchUseIndividualCodes": "Individuelle Aktionscodes verwenden.",
+                        "linkEditIndividualCodes": "Individuelle Aktionscodes verwalten.",
+                        "individual": {
+                            "title": "Individuelle Aktionscodes",
+                            "labelPattern": "Muster",
+                            "helpTextPattern": "Geben Sie hier Ihr gewünschtes Code-Muster an. Benutzen Sie dabei Platzhalter wie %s für Buchstaben oder %d für Zahlen. Beispiel: code-%s%s%d",
+                            "labelCount": "Anzahl",
+                            "buttonGenerate": "Speichern und Codes generieren.",
+                            "labelNoCodesExist": "Keine Codes vorhanden.",
+                            "columnCode": "Aktionscode",
+                            "columnRedeemed": "Eingelöst",
+                            "columnCustomer": "Kunde",
+                            "buttonDeleteCode": "Löschen",
+                            "buttonOpenCustomer": "Kunde öffnen",
+                            "alerts": {
+                                "errorNoPatternTitle": "Fehlendes Muster",
+                                "errorNoPatternMessage": "Bitte gib ein Muster für Deine Codes an.",
+                                "successGeneratedTitle": "Code-Erstellung abgeschlossen.",
+                                "successGeneratedMessage": "{count} Codes wurden generiert.",
+                                "successDeletedTitle": "Code gelöscht.",
+                                "errorDeletedTitle": "Fehler beim Löschen."
+                            }
+                        }
+                    },
+                    "cms": {
+                        "title": "Layout-Zuweisung",
+                        "changeLayout": "Layout ändern",
+                        "changeLayoutEmpty": "Layout zuweisen",
+                        "editInPagebuilder": "Im Designer bearbeiten",
+                        "editInPagebuilderEmpty": "Neues Layout erstellen",
+                        "defaultTitle": "Layout fehlt",
+                        "defaultDesc": "Popup wird nicht angezeigt",
+                        "actionConfirm": "Layout übernehmen",
+                        "placeholderSearchBar": "Layouts durchsuchen ...",
+                        "actionCancel": "Abbrechen",
+                        "modalTitle": "Layout auswählen",
+                        "headline": "Popups",
+                        "pageTypePopupLabel": "Popup",
+                        "missingWarning": "Ohne Layout wird das Popup nicht angezeigt."
+                    }
+                },
+                "preconditions": {
+                    "ruleModuleLink": "Regelmodul öffnen",
+                    "persona": {
+                        "card": "Zielgruppe",
+                        "title": "Welche Kunden können von dieser Popup profitieren?",
+                        "text": "Nutze Regeln aus dem Rule Builder, um die Zielgruppe dieser Marketingaktion einzugrenzen. Ohne eine Eingrenzung haben alle Deine Kunden Zugriff auf diese Popup.",
+                        "labelRules": "Kundenregeln",
+                        "placeholderRules": "Regel hinzufügen ...",
+                        "switchAssignCustomers": "Popup einzelnen Kunden zuweisen",
+                        "placeholderAddCustomers": "Kunden durchsuchen und hinzufügen...",
+                        "customers": {
+                            "grid": {
+                                "headerName": "Name",
+                                "headerCustomerNumber": "Kundennummer",
+                                "delete": "Entfernen"
+                            }
+                        }
+                    },
+                    "order": {
+                        "card": "Qualifizierte Bestellungen",
+                        "title": "Definiere qualifizierte Bestellungs-Eigenschaften für diese Popup.",
+                        "text": "Nutze Regeln aus dem Rule Builder, um zu definieren, welche Eigenschaften einer Bestellung vorhanden sein müssen, um die Aktionsauflagen zu erfüllen. Ohne eine Eingrenzung wird die Popup auf alle Bestellungen angewendet.",
+                        "rulesModuleLink": "Regelmodul öffnen",
+                        "rulesCaption": "Bestellregeln",
+                        "rulesPlaceholder": "Bestellregel zuweisen ..."
+                    },
+                    "cart": {
+                        "card": "Warenkörbe",
+                        "title": "Definiere qualifizierte Warenkörbe für diese Rabatt-Popup.",
+                        "text": "Nutze Regeln aus dem Rule Builder, um zu definieren, welche Eigenschaften eines Warenkorbes vorhanden sein müssen, um die Aktionsauflagen zu erfüllen. Ohne eine Eingrenzung wird die Popup auf alle Warenkörbe angewendet.",
+                        "rulesModuleLink": "Regelmodul öffnen",
+                        "rulesCaption": "Warenkorbregeln",
+                        "rulesPlaceholder": "Warenkorbregel zuweisen ...",
+                        "setgroups": {
+                            "switchGroupsEnabled": "Popup auf Produkt-Sets anwenden",
+                            "buttonAddGroup": "Set-Gruppe hinzufügen",
+                            "titleName": "Set-Gruppe",
+                            "labelMode": "Modus",
+                            "labelValue": "Wert",
+                            "labelSorting": "Sortierung",
+                            "labelRules": "Produktregeln",
+                            "buttonDuplicate": "Duplizieren",
+                            "buttonDelete": "Löschen"
+                        }
+                    },
+                    "publish": {
+                        "card": "Veröffentlichung",
+                        "title": "Definiere in welchem Zeitraum das Popup angezeigt werden soll.",
+                        "labelValidFrom": "Aktiv von",
+                        "labelValidUntil": "Aktiv bis"
+                    }
+                },
+                "location": {
+                    "card": "Bereich",
+                    "title": "Schränke die Anzeige des Popups auf bestimmte Bereiche ein.",
+                    "labelSalesChannels": "Verkaufskanäle",
+                    "placeholderSalesChannels": "Verkaufskanal hinzufügen ...",
+                    "labelCategory": "Kategorien",
+                    "placeholderCategory": "Weise Kategorien zu ..."
+                },
+                "discounts": {
+                    "card": "Rabatt",
+                    "labelValue": "Wert",
+                    "labelMaxValue": "Maximaler Rabattwert",
+                    "helpTextMaxValueAdvancedPrices": "Der maximale Betrag besitzt erweiterte Preise.",
+                    "placeholderValue": "Gib den Wert der Popup an ...",
+                    "labelScope": "Anwenden auf:",
+                    "flagProductScopeLabel": "Nur auf ausgewählte Produkte anwenden",
+                    "labelRules": "Produktregeln",
+                    "placeholder": "Produktregeln zuweisen ...",
+                    "labelType": "Art",
+                    "valueScopeCart": "Warenkorb",
+                    "valueScopeDelivery": "Versandkosten",
+                    "valueScopeSet": "Gesamtes Set",
+                    "valueScopeSetGroup": "Set-Gruppe",
+                    "valueTypeAbsolute": "Absolut",
+                    "valueTypePercentage": "Prozentual",
+                    "valueTypeFixed": "Festpreis",
+                    "valueTypeFixedUnit": "Fester Stückpreis",
+                    "buttonAddDiscount": "Rabatt hinzufügen",
+                    "buttonDeleteDiscount": "Rabatt entfernen",
+                    "delete": {
+                        "confirmTitle": "Rabatt entfernen",
+                        "confirmText": "Möchtest Du diesen Rabatt wirklich aus der Popup entfernen?",
+                        "buttonCancel": "Abbrechen",
+                        "buttonDelete": "Rabatt entfernen"
+                    },
+                    "labelSorting": "Sortieren nach",
+                    "labelApplyCount": "Anwenden auf",
+                    "labelMaxCount": "Maximale Anwendung",
+                    "linkAdvancedPrices": "Erweiterte Preisansicht öffnen",
+                    "pricesModal": {
+                        "advancedPricesHeader": "Erweiterte Preise",
+                        "closeModal": "Schließen",
+                        "labelCurrency": "Währung",
+                        "labelPrice": "Wert"
+                    }
+                }
+            }
+        }
+    }
+}

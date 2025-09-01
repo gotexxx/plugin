@@ -1,0 +1,17 @@
+{% block alpha_time_dalay_select %}
+
+    <div class="alpha-time-delay-time-select">
+        {% block alpha_time_dalay_select_field %}
+            <sw-single-select
+                    size="medium"
+                    :options="selectTimeValues"
+                    placeholder="Verzögerungszeit"
+                    label="Verzögerungszeit"
+                    v-model:value="popup.delayShowTime"
+            >
+
+            </sw-single-select>
+        {% endblock %}
+    </div>
+
+{% endblock %}

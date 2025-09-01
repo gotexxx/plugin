@@ -1,0 +1,19 @@
+{% block alpha_popup_detail_restrictions %}
+    <div class="alpha-popup-detail-restrictions">
+
+       {% block alpha_popup_detail_restrictions_publish_form %}
+           <alpha-popup-publish-select></alpha-popup-publish-select>
+       {% endblock %}
+
+        {% block alpha_popup_detail_restrictions_persona_rule_form %}
+            <alpha-popup-persona-form></alpha-popup-persona-form>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_order_rule_form %}
+            <alpha-popup-order-condition-form></alpha-popup-order-condition-form>
+        {% endblock %}
+        {% block alpha_popup_cart_condition_form %}
+            <alpha-popup-cart-condition-form></alpha-popup-cart-condition-form>
+
+        {% endblock %}
+    </div>
+{% endblock %}

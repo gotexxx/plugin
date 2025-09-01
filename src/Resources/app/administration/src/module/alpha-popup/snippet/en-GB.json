@@ -1,0 +1,238 @@
+{
+    "alpha-popup": {
+        "general": {
+            "description": "Manage Popups",
+            "information": "Information",
+            "language": "Language",
+            "salutation": "Salutation",
+            "salesChannel": "Sales Channel",
+            "buttonSave": "Save",
+            "mainMenuItemGeneral": "Popups",
+            "placeholderSearchBarSnippets": "Search all Popups ...",
+            "tags": "Tags",
+            "labelAddNewRule": "Add neu Rule"
+        },
+        "list": {
+            "textTitle": "Popups",
+            "buttonAddPopup": "Create Popup",
+            "buttonCancel": "Cancel",
+            "buttonDelete": "Delete",
+            "columnActive": "Active",
+            "columnName": "Name",
+            "cmsPageLayoutName": "Layout Name",
+            "columnValidFrom": "Active from",
+            "columnValidUntil": "Active until",
+            "contextMenuDelete": "Delete",
+            "contextMenuDuplicate": "Duplicate",
+            "contextMenuEdit": "Edit",
+            "messageEmpty": "No Popups",
+            "modalTitleDelete": "Delete Popup",
+            "placeholderSearchBar": "Search all Popups ...",
+            "textDeleteConfirm": "Do you really want to delete Popup \"{name}\"?",
+            "titleSidebarItemRefresh": "Refresh"
+        },
+        "detail": {
+            "header": {
+                "titleCreate": "New Popup",
+                "titleEdit": "Popup",
+                "buttonCancel": "Cancel",
+                "buttonSave": "Save",
+                "titleSaveSuccess": "Success",
+                "messageSaveSuccess": "Popup \"{name}\" saved."
+            },
+            "tabs": {
+                "tabGeneral": "General",
+                "tabLocations": "Locations",
+                "tabConditions": "Conditions",
+                "tabDiscounts": "Discounts"
+            },
+            "main": {
+                "general": {
+                    "cardTitlePopupInfo": "Settings",
+                    "cardTitleCode": "Promo Codes",
+                    "labelTitle": "Name",
+                    "placeholderName": "Enter a Name...",
+                    "labelPopupWidth": "Width of the Popups",
+                    "labelPopupMaxWidth": "Maximum width of the Popups",
+                    "placeholderPopupWidth": "1200px",
+                    "placeholderPopupMaxWidth": "400px e.g.",
+                    "labelActive": "Active",
+                    "labelActiveNavigation": "Active on Navigation",
+                    "labelActiveProduct": "Active on Product-Pages",
+                    "labelActiveCheckout": "Active on Checkout- & Order-Pages ",
+                    "labelActiveConfirmCheckout": "Active on Checkout-Confirm-Page",
+                    "labelActiveFinishCheckout": "Active on Finish-Checkout-Page",
+                    "labelActiveLogin": "Active on Login Page",
+                    "labelActiveRegister": "Active on Register Page",
+                    "labelMaxRedemptionsGlobal": "Redemptions total",
+                    "labelMaxRedemptionsPerCustomer": "Redemptions per Customer",
+                    "labelPopupExclusions": "Do not combine with",
+                    "placeholderPopupExclusions": "Add Popup...",
+                    "labelSettings": "Settings",
+                    "labelTrigger": "Trigger",
+                    "labelVisualSettings": "Style",
+                    "labelJsEvents": "js Events",
+                    "labelElementSelector": "Element Selector",
+                    "cookie": {
+                        "title": "Time until next display",
+                        "cookieExpireTime": "Time until next display",
+                        "none": "none",
+                        "oneHour": "1 Hour",
+                        "sixHours": "6 Hours",
+                        "twelveHours": "12 Hours",
+                        "oneDay": "1 Day",
+                        "twoDay": "2 Days",
+                        "oneWeek": "7 Days",
+                        "twoWeeks": "14 Days",
+                        "oneMonth": "1 Month",
+                        "indefinite": "indefinite"
+                    },
+                    "codes": {
+                        "card": "Promo Code",
+                        "labelCode": "General Promo Code",
+                        "helpTextIndividual": "A general promo code cannot be used at the same time as individual codes.",
+                        "placeholderCode": "Enter a code for this Popup ...",
+                        "switchUseCodes": "Use Promo Code",
+                        "switchUseIndividualCodes": "Use individual Promo Codes.",
+                        "linkEditIndividualCodes": "Use individual Promo Codes.",
+                        "individual": {
+                            "title": "Individual Promo Codes",
+                            "labelPattern": "Pattern",
+                            "helpTextPattern": "Enter your desired code pattern here. Use placeholders like %s for letters or %d for numbers. Example: code-%s%s%d",
+                            "labelCount": "Count",
+                            "buttonGenerate": "Save and generate codes.",
+                            "labelNoCodesExist": "No Codes exist.",
+                            "columnCode": "Promo Codes",
+                            "columnRedeemed": "Redeemed",
+                            "columnCustomer": "Customer",
+                            "buttonDeleteCode": "Delete",
+                            "buttonOpenCustomer": "Open Customer",
+                            "alerts": {
+                                "errorNoPatternTitle": "Missing pattern",
+                                "errorNoPatternMessage": "Please enter a pattern for your codes",
+                                "successGeneratedTitle": "Code-Generation succeeded.",
+                                "successGeneratedMessage": "{count} Codes have been generated.",
+                                "successDeletedTitle": "Code deleted.",
+                                "errorDeletedTitle": "An error occurred while deleting"
+                            }
+                        }
+                    },
+                    "cms": {
+                        "title": "Layout-Assignment",
+                        "changeLayout": "Change Layout",
+                        "changeLayoutEmpty": "Assign Layout",
+                        "editInPagebuilder": "Edit in Pagebuilder",
+                        "editInPagebuilderEmpty": "Create new Layout",
+                        "defaultTitle": "Layout missing",
+                        "defaultDesc": "Popup will not be displayed",
+                        "actionConfirm": "Apply Layout",
+                        "placeholderSearchBar": "Search Layouts ...",
+                        "actionCancel": "Cancel",
+                        "modalTitle": "Select Layout",
+                        "headline": "Popups",
+                        "pageTypePopupLabel": "Popup",
+                        "missingWarning": "Without a Layout the Popup will not be displayed."
+                    }
+                },
+                "preconditions": {
+                    "ruleModuleLink": "Open Rulemodule",
+                    "persona": {
+                        "card": "Target group",
+                        "title": "Which customers can benefit from this popup?",
+                        "text": "Use rules from the Rule Builder to narrow down the audience of this marketing action. Without a restriction, all your customers will have access to this popup.",
+                        "labelRules": "Customer rules",
+                        "placeholderRules": "Add rule ...",
+                        "switchAssignCustomers": "Assign popup to individual customers",
+                        "placeholderAddCustomers": "Browse and add customers...",
+                        "customers": {
+                            "grid": {
+                                "headerName": "Name",
+                                "headerCustomerNumber": "Customer number",
+                                "delete": "Delete"
+                            }
+                        }
+                    },
+                    "order": {
+                        "card": "Qualified orders",
+                        "title": "Define qualified order properties for this popup.",
+                        "text": "Use rules from the Rule Builder to define which properties of an order must be present in order to meet the promotion requirements. Without a restriction, the popup will be applied to all orders.",
+                        "rulesModuleLink": "Open rule module",
+                        "rulesCaption": "Order rules",
+                        "rulesPlaceholder": "Add order rule ..."
+                    },
+                    "cart": {
+                        "card": "Shopping carts",
+                        "title": "Define qualified Shopping carts for this discount-popup.",
+                        "text": "Use rules from the Rule Builder to define which properties of a shopping cart must be present in order to meet the promotion requirements. Without a restriction, the popup will be applied to all shopping carts.",
+                        "rulesModuleLink": "Open rule module",
+                        "rulesCaption": "Shopping cart rules",
+                        "rulesPlaceholder": "Assign shopping cart rules ...",
+                        "setgroups": {
+                            "switchGroupsEnabled": "Apply popup to product-sets",
+                            "buttonAddGroup": "Add set-group",
+                            "titleName": "Set-groups",
+                            "labelMode": "Mode",
+                            "labelValue": "Value",
+                            "labelSorting": "Sorting",
+                            "labelRules": "Product rules",
+                            "buttonDuplicate": "Duplicate",
+                            "buttonDelete": "Delete"
+                        }
+                    },
+                    "publish": {
+                        "card": "Publishing",
+                        "title": "Define the time period in which the popup should be displayed.",
+                        "labelValidFrom": "Active from",
+                        "labelValidUntil": "Active until"
+                    }
+                },
+                "location": {
+                    "card": "Location",
+                    "title": "Restrict the display of the popup to specific locations.",
+                    "labelSalesChannels": "Sales channels",
+                    "placeholderSalesChannels": "Add sales channel ...",
+                    "labelCategory": "Categories",
+                    "placeholderCategory": "Apply to category ..."
+                },
+                "discounts": {
+                    "card": "Discount",
+                    "labelValue": "Value",
+                    "labelMaxValue": "Maximum discount value",
+                    "helpTextMaxValueAdvancedPrices": "The maximum value has advanced prices",
+                    "placeholderValue": "Enter popup value ...",
+                    "labelScope": "Anwenden auf:",
+                    "flagProductScopeLabel": "Only apply to selected products",
+                    "labelRules": "Product rules",
+                    "placeholder": "Apply product rule ...",
+                    "labelType": "Type",
+                    "valueScopeCart": "Shopping cart",
+                    "valueScopeDelivery": "Shipping costs",
+                    "valueScopeSet": "Whole Set",
+                    "valueScopeSetGroup": "Set-groups",
+                    "valueTypeAbsolute": "Absolut",
+                    "valueTypePercentage": "Percentage",
+                    "valueTypeFixed": "Fixed price",
+                    "valueTypeFixedUnit": "Fixed unit price",
+                    "buttonAddDiscount": "Add discount",
+                    "buttonDeleteDiscount": "Remove discount",
+                    "delete": {
+                        "confirmTitle": "Remove discount",
+                        "confirmText": "Do you really want to remove this discount from this popup?",
+                        "buttonCancel": "Cancel",
+                        "buttonDelete": "Remove discount"
+                    },
+                    "labelSorting": "Sort by",
+                    "labelApplyCount": "Apply to",
+                    "labelMaxCount": "Maximum uses",
+                    "linkAdvancedPrices": "Open advanced prices",
+                    "pricesModal": {
+                        "advancedPricesHeader": "Advanced prices",
+                        "closeModal": "Close",
+                        "labelCurrency": "Currency",
+                        "labelPrice": "Price"
+                    }
+                }
+            }
+        }
+    }
+}

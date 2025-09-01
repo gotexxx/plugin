@@ -1,0 +1,8 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_pseudo_modal %}
+    {{ parent() }}
+    {% block alpha_popup_base %}
+        {% sw_include '@Storefront/storefront/component/alpha-popup.html.twig' %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% block alpha_popup_category_form %}
+    <sw-inherit-wrapper v-model:value="popup.categories"
+                        :has-parent="false"
+                        :inherited-value="popup.categories"
+                        is-association>
+        <template #content="{ currentValue }">
+
+            <sw-category-tree-field :categories-collection="currentValue ? currentValue : []"
+                                    class="sw-product-detail__select-category"
+                                    :disabled="false"
+                                    :placeholder="$tc('alpha-popup.detail.main.location.placeholderCategory')">
+            </sw-category-tree-field>
+
+        </template>
+    </sw-inherit-wrapper>
+{% endblock %}

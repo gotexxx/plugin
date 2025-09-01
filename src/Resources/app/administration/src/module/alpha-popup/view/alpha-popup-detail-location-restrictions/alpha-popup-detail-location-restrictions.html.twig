@@ -1,0 +1,39 @@
+{% block alpha_popup_detail_location_restrictions %}
+    <sw-card positionIdentifier="alpha-popup-detail-location-restrictions-card" class="alpha-popup-detail-location-restrictions" :title="$tc('alpha-popup.detail.main.location.card')">
+        <h4>{{ $tc('alpha-popup.detail.main.location.title') }}</h4>
+        <sw-container columns="1fr" gap="0px 30px">
+            {% block alpha_popup_detail_restrictions_sales_channels_form %}
+            <alpha-popup-sales-channel-select
+                class="alpha-popup-basic-form__select-sales-channels"
+                :label="$tc('alpha-popup.detail.main.location.labelSalesChannels')"
+                :placeholder="$tc('alpha-popup.detail.main.location.placeholderSalesChannels')">
+            </alpha-popup-sales-channel-select>
+            {% endblock %}
+            {% block alpha_popup_location_restriction_list_form %}
+                <alpha-popup-category-form
+                        class="alpha-popup-basic-form__location-restriction-list-form"
+                        :popup="$attrs.popup">
+                </alpha-popup-category-form>
+            {% endblock %}
+
+            {% block alpha_popup_detail_restrictions_active_from %}
+                <alpha-popup-active-form
+                        :popup="$attrs.popup">
+                </alpha-popup-active-form>
+
+            {% endblock %}
+
+            {% block alpha_popup_products_form %}
+                <alpha-popup-product-form
+                        class="alpha-popup-basic-form__products-form"
+                        :popup="$attrs.popup"
+                        v-if="$attrs.popup.productActive"
+                >
+
+                </alpha-popup-product-form>
+            {% endblock %}
+
+
+        </sw-container>
+    </sw-card>
+{% endblock %}

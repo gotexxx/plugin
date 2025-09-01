@@ -1,0 +1,74 @@
+{% block alpha_popup_detail_restrictions_active_from %}
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        {% block alpha_popup_detail_restrictions_product_active_field %}
+
+            <sw-switch-field
+                    bordered
+                    :label="$tc('alpha-popup.detail.main.general.labelActiveNavigation')"
+                    v-model:value="popup.navigationActive"
+                    style="max-width:500px; margin:0;"
+                    v-tooltip="{
+                                message: 'Homepage, Kategorieseite, Herstellerseite ',
+                                width: 258,
+                            }"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_navigation_active_field %}
+            <sw-switch-field
+                    bordered
+                    :label="$tc('alpha-popup.detail.main.general.labelActiveProduct')"
+                    v-model:value="popup.productActive"
+                    style="max-width:500px; margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_login_active_field %}
+            <sw-switch-field
+                      bordered
+                      :label="$tc('alpha-popup.detail.main.general.labelActiveLogin')"
+                      v-model:value="popup.loginActive"
+                      style="max-width:500px;margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_register_active_field %}
+            <sw-switch-field
+                      bordered
+                      :label="$tc('alpha-popup.detail.main.general.labelActiveRegister')"
+                      v-model:value="popup.registerActive"
+                      style="max-width:500px;margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_checkout_active_field %}
+            <sw-switch-field
+                      bordered
+                      :label="$tc('alpha-popup.detail.main.general.labelActiveCheckout')"
+                      v-model:value="popup.checkoutActive"
+                      style="max-width:500px;margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_checkout_confirm_active_field %}
+            <sw-switch-field
+                      bordered
+                      :label="$tc('alpha-popup.detail.main.general.labelActiveFinishCheckout')"
+                      v-model:value="popup.checkoutFinishActive"
+                      v-if="popup.checkoutActive"
+                      style="max-width:500px;margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+        {% block alpha_popup_detail_restrictions_checkout_finish_active_field %}
+            <sw-switch-field
+                      bordered
+                      :label="$tc('alpha-popup.detail.main.general.labelActiveConfirmCheckout')"
+                      v-model:value="popup.checkoutConfirmActive"
+                      v-if="popup.checkoutActive"
+                      style="max-width:500px;margin:0;"
+            >
+            </sw-switch-field>
+        {% endblock %}
+    </div>
+{% endblock %}

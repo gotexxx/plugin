@@ -1,0 +1,32 @@
+{% block alpha_popup_rule_select %}
+    <div class="alpha-popup-rule-select">
+        {% block a %}
+            <sw-entity-many-to-many-select
+                    v-bind="$attrs"
+                    ref="ruleSelect"
+                    class="alpha-popup-rule-select"
+                    :entity-collection="collection ? collection : []"
+                    :local-mode="localMode"
+                    v-on="$listeners"
+                    @update:entityCollection="onChange">
+
+                <template #before-item-list>
+                    <li class="sw-select-result sw-popup-rule-select__add-new-rule"
+                        @click="showRuleModal = true">
+                        {{ $tc('alpha-popup.general.labelAddNewRule') }}
+                    </li>
+                </template>
+            </sw-entity-many-to-many-select>
+        {% endblock %}
+
+        {% block b %}
+            <sw-rule-modal
+                    v-if="showRuleModal"
+                    :allowed-rule-scopes="ruleScope"
+                    @save="onSaveRule"
+                    @modal-close="showRuleModal = false"
+            >
+            </sw-rule-modal>
+        {% endblock %}
+    </div>
+{% endblock %}

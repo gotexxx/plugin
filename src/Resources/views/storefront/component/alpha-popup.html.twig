@@ -1,0 +1,28 @@
+{% block alpha_popup_base_popups %}
+    {% set popups = page.header.extensions.popups %}
+    {% for popup in popups %}
+        {% block alpha_popup_base_wrapper %}
+            <div class="alpha-popup--wrapper"
+                 data-popup-id="{{ popup.id }}"
+                 data-cookie-expiration-days="{{ popup.cookieExpireDays }}"
+                 data-delay-show-time="{{ popup.delayShowTime }}"
+                 data-scroll-activation="{{ popup.scrollActivationPercentage }}"
+                 data-js-events="{{ popup.jsEvents }}"
+                 data-element-selectors="{{ popup.elementSelectors }}"
+            >
+                <div class="alpha-popup--resize">
+                    {# and popup.popupMaxWidth matches '/^[\\d]+px$/'
+                        and popup.popupWidthIndividual matches '/^[\\d]+px$/'
+                        and popup.popupMaxWidth matches '/^[\\d]+px$/'
+                    #}
+                    <div class="alpha-popup--popup{% if popup.popupWidth %} {{ popup.popupWidth }}-width{% endif %}"
+                    style="{% if popup.popupWidth == 'individual' and popup.popupWidthIndividual  %}width: {{ popup.popupWidthIndividual }};{% endif %}
+                            {% if popup.popupMaxWidth and popup.popupWidth != 'individual' %}--_max-width: {{ popup.popupMaxWidth }};{% elseif popup.popupMaxWidth  and popup.popupWidth == 'individual' %}max-width: {{ popup.popupMaxWidth }};{% endif %}">
+                        <a class="alpha-popup--close" href="#">x</a>
+                        {% sw_include '@Storefront/storefront/page/content/detail.html.twig' with {'cmsPage': popup.cmsPage} %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endfor %}
+{% endblock %}

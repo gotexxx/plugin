@@ -1,0 +1,21 @@
+{% block alpha_popup_order_condition_form %}
+    <sw-card position-identifier="popup-order-condition-form" class="popup-order-condition-form" :title="$tc('alpha-popup.detail.main.preconditions.order.card')">
+        <h4>{{ $tc('alpha-popup.detail.main.preconditions.order.title') }}</h4>
+        <p>
+            {{ $tc('alpha-popup.detail.main.preconditions.order.text') }}
+        </p>
+
+        {% block alpha_popup_order_condition_form_rules_field %}
+            <alpha-popup-rule-select
+                    v-if="hasPopupOrderRulesLoaded"
+                    class="alpha-popup-order-condition-form__order-rules"
+                    v-model:collection="popup.orderRules"
+                    :label="$tc('alpha-popup.detail.main.preconditions.order.rulesCaption')"
+                    :placeholder="$tc('alpha-popup.detail.main.preconditions.order.rulesPlaceholder')"
+                    :criteria="ruleFilter"
+                    :rule-scope="['checkout']"
+                    :disabled="isEditingDisabled">
+            </alpha-popup-rule-select>
+        {% endblock %}
+    </sw-card>
+{% endblock %}

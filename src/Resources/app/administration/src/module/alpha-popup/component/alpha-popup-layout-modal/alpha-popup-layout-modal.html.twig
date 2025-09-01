@@ -1,0 +1,69 @@
+{% block alpha_popup_layout_modal %}
+    <sw-modal class="alpha-popup-layout-modal" @modal-close="closeModal" :title="$tc('alpha-popup.detail.main.general.cms.modalTitle')">
+
+        {% block alpha_popup_layout_modal_header %}
+            <div class="alpha-popup-layout-modal__header">
+
+                {% block alpha_popup_layout_modal_header_title %}
+                    <div class="alpha-popup-layout-modal__header-title">
+                        {{ $tc('alpha-popup.detail.main.general.cms.headline') }}
+                    </div>
+                {% endblock %}
+
+                {% block alpha_popup_layout_modal_header_search %}
+                    <sw-simple-search-field class="alpha-popup-layout-modal__header-search"
+                        :placeholder="$tc('alpha-popup.detail.main.general.cms.placeholderSearchBar')"
+                        @search-term-change="onSearch">
+                    </sw-simple-search-field>
+                {% endblock %}
+
+            </div>
+        {% endblock %}
+
+        {% block alpha_popup_layout_modal_content %}
+            <div class="alpha-popup-layout-modal__content">
+
+                {% block alpha_popup_layout_modal_loader %}
+                    <sw-loader v-if="isLoading"></sw-loader>
+                {% endblock %}
+
+                {% block alpha_popup_layout_modal_content %}
+                    <sw-container v-else columns="repeat(auto-fill, minmax(250px, 1fr))" gap="24px">
+
+                        {% block alpha_popup_layout_modal_content_listing %}
+                            <div v-for="(cmsPage, index) in pages" class="alpha-popup-layout-modal__content-item" :class="[{ 'is--selected': cmsPage.id === selected }, 'alpha-popup-layout-modal__content-item--' + index]">
+                                {% block alpha_popup_layout_modal_content_listing_item %}
+
+                                    {% block alpha_popup_layout_modal_content_listing_item_checkbox %}
+                                        <sw-checkbox-field @change="onSelection(cmsPage.id)" :value="cmsPage.id === selected" type="checkbox"></sw-checkbox-field>
+                                    {% endblock %}
+
+                                    {% block alpha_popup_layout_modal_content_listing_item_inner %}
+                                        <sw-cms-list-item
+                                            :page="cmsPage"
+                                            :key="cmsPage.id"
+                                            @item-click="selectItem(cmsPage.id)">
+                                        </sw-cms-list-item>
+                                    {% endblock %}
+
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </sw-container>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block alpha_popup_layout_modal_footer %}
+            <template #modal-footer>
+                <sw-button @click="closeModal">
+                    {{ $tc('alpha-popup.detail.main.general.cms.actionCancel') }}
+                </sw-button>
+                <sw-button @click="selectLayout" variant="primary">
+                    {{ $tc('alpha-popup.detail.main.general.cms.actionConfirm') }}
+                </sw-button>
+            </template>
+        {% endblock %}
+
+    </sw-modal>
+{% endblock %}

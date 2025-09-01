@@ -1,0 +1,101 @@
+{% block alpha_popup_persona_form %}
+    <div class="alpha-popup-persona-form">
+        <sw-card position-identifier="alpha-persona-form"
+                 :title="$tc('alpha-popup.detail.main.preconditions.persona.card')">
+            {% block alpha_popup_persona_form_rules %}
+                <div class="alpha-popup-persona-form-rules">
+                    <h4>{{ $tc('alpha-popup.detail.main.preconditions.persona.title') }}</h4>
+                    <p>
+                        {{ $tc('alpha-popup.detail.main.preconditions.persona.text') }}
+                    </p>
+                    {% block alpha_popup_persona_form_persona_rule_id_field %}
+                        <alpha-popup-rule-select
+                                v-if="hasPopupPersonaRulesLoaded"
+                                class="alpha-popup-persona-form__persona-rules"
+                                v-model:collection="popup.personaRules"
+                                :label="$tc('alpha-popup.detail.main.preconditions.persona.labelRules')"
+                                :placeholder="$tc('alpha-popup.detail.main.preconditions.persona.placeholderRules')"
+                                :criteria="ruleFilter"
+                                :rule-scope="['checkout']"
+                                :disabled="isEditingDisabled">
+                        </alpha-popup-rule-select>
+                    {% endblock %}
+                    {% block alpha_popup_persona_form_persona_customers_switch %}
+                        <sw-switch-field
+                                v-if="popup"
+                                class="alpha-popup-persona-form__customers-switch"
+                                :label="$tc('alpha-popup.detail.main.preconditions.persona.switchAssignCustomers')"
+                                v-model:value="popup.customerRestriction"
+                                :disabled="isEditingDisabled">
+                        </sw-switch-field>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </sw-card>
+
+        <sw-card position-identifier="alpha-popup-persona-form-customers-card"
+                 v-if="popup && popup.customerRestriction">
+            {% block alpha_popup_persona_form_customers %}
+                <div class="alpha-popup-persona-form-customers">
+                    {% block alpha_popup_persona_form_customer_search_field %}
+                        <sw-entity-single-select ref="selectCustomerSearch"
+                                                 class="alpha-popup-persona-form-customers__customer-search"
+                                                 :search-placeholder="$tc('alpha-popup.detail.main.preconditions.persona.placeholderAddCustomers')"
+                                                 required
+                                                 entity="customer"
+                                                 :criteria="customerCriteria"
+                                                 label-property="firstName"
+                                                 @update:value="onAddCustomer"
+                                                 v-model:value="customerModel"
+                                                 :disabled="isEditingDisabled">
+                            <template #result-label-property="{ item, index, searchTerm, getKey }">
+                                <sw-highlight-text :text="`${getKey(item, 'firstName')} ${getKey(item, 'lastName')}`"
+                                                   :search-term="searchTerm">
+                                </sw-highlight-text>
+                            </template>
+                        </sw-entity-single-select>
+                    {% endblock %}
+                    {% block alpha_popup_persona_form_customer_grid %}
+                        <sw-data-grid ref="gridCustomers"
+                                      :data-source="gridCustomersPageDataSource"
+                                      :columns="gridCustomersColumns"
+                                      :show-selection="true"
+                                      @select-all-items="onGridSelectionChanged"
+                                      @selection-change="onGridSelectionChanged">
+                            <template #column-fullName="{ item, index }">
+                                {{ item.firstName }} {{ item.lastName }}
+                            </template>
+                            <template #actions="{ item }">
+                                {% block alpha_popup_persona_form_customer_grid_action_remove %}
+                                    <sw-context-menu-item variant="danger"
+                                                          @click="onRemoveCustomer(item)">
+                                        {{ $tc('alpha-popup.detail.main.preconditions.persona.customers.grid.delete') }}
+                                    </sw-context-menu-item>
+                                {% endblock %}
+                            </template>
+                            <template #pagination>
+                                <sw-pagination :total="gridCustomersTotalCount"
+                                               :page="gridCustomersPageNr"
+                                               :limit="gridCustomersPageLimit"
+                                               :total-visible="7"
+                                               :steps="[10, 25, 50]"
+                                               @page-change="onCustomerPageChange">
+                                </sw-pagination>
+                            </template>
+                        </sw-data-grid>
+                    {% endblock %}
+                    {% block alpha_popup_persona_form_customer_grid_remove_all %}
+                        <sw-button class="alpha-popup-persona-form-customers__remove-selected-customers"
+                                   v-if="gridCustomersTotalCount > 0"
+                                   :disabled="isRemoveButtonDisabled"
+                                   @click="onRemoveSelectedCustomers"
+                                   size="small"
+                                   square>
+                            <sw-icon name="regular-trash" small/>
+                        </sw-button>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </sw-card>
+    </div>
+{% endblock %}

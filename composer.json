@@ -1,0 +1,45 @@
+{
+    "name": "alpha/popup",
+    "description": "Popup for Shopware 6",
+    "version": "v1.5.2",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "alphanauten GmbH & Co. KG",
+            "email": "technik@alphanauten.de",
+            "role": "Manufacturer"
+        }
+    ],
+    "type": "shopware-platform-plugin",
+    "autoload": {
+        "psr-4": {
+            "Alpha\\Popup\\": "src/"
+        }
+    },
+    "require": {
+        "shopware/core": "~6.6.0",
+        "shopware/administration": "~6.6.0",
+        "shopware/storefront": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Alpha\\Popup\\AlphaPopupSW6",
+        "plugin-icon": "src/Resources/config/plugin.png",
+        "copyright": "(c) by alphanauten GmbH & Co. KG",
+        "label": {
+            "de-DE": "Popup",
+            "en-GB": "Popup"
+        },
+        "description": {
+            "de-DE": "Popup für SW6",
+            "en-GB": "Popup for SW6"
+        },
+        "manufacturerLink": {
+            "de-DE": "https://alphanauten.de/",
+            "en-GB": "https://alphanauten.de/"
+        },
+        "supportLink": {
+            "de-DE": "https://alphanauten.de/kontakt/",
+            "en-GB": "https://alphanauten.de/kontakt/"
+        }
+    }
+}

@@ -1,0 +1,65 @@
+{% block alpha_popup_cms_layout_card %}
+    <sw-card position-identifier="alpha-popup-cms-layout-card" class="alpha-popup-cms-layout-card" :title="$tc('alpha-popup.detail.main.general.cms.title')" :is-loading="isLoading">
+        <div class="alpha-popup-cms-layout-card__base-layout">
+            {% block alpha_popup_cms_layout_preview %}
+                <div class="alpha-popup-cms-layout-card__preview" @click="openLayoutModal">
+                    <sw-cms-list-item :page="cmsPage" active></sw-cms-list-item>
+                </div>
+            {% endblock %}
+
+            {% block alpha_popup_cms_layout_modal %}
+                <alpha-popup-layout-modal
+                    v-if="showLayoutSelectionModal"
+                    @modal-layout-select="onLayoutSelect"
+                    @modal-close="closeLayoutModal">
+                </alpha-popup-layout-modal>
+            {% endblock %}
+
+            {% block alpha_popup_cms_layout_desc %}
+                <div class="alpha-popup-cms-layout-card__desc">
+
+                    {% block alpha_popup_cms_layout_desc_info %}
+                        <div class="alpha-popup-cms-layout-card__desc-info">
+                            {% block alpha_popup_cms_layout_desc_info_headline %}
+                                <div class="alpha-popup-cms-layout-card__desc-headline" :class="{ 'is--empty': !cmsPage }">
+                                    {{ cmsPage ? cmsPage.name : $tc('alpha-popup.detail.main.general.cms.defaultTitle') }}
+                                </div>
+                            {% endblock %}
+
+                            {% block alpha_popup_cms_layout_desc_info_subheadline %}
+                                <div class="alpha-popup-cms-layout-card__desc-subheadline" :class="{ 'is--empty': !cmsPage }">
+                                    {{ cmsPage ? cmsPageTypes[cmsPage.type] : $tc('alpha-popup.detail.main.general.cms.defaultDesc') }}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+
+                    {% block alpha_popup_cms_layout_desc_actions %}
+                        <div class="alpha-popup-cms-layout-card__desc-actions">
+                            {% block alpha_popup_cms_layout_desc_actions_layout %}
+                                <sw-button
+                                    size="small"
+                                    @click="openLayoutModal"
+                                    class="alpha-popup-cms-layout__change-layout-action">
+                                    {{ cmsPage ? $tc('alpha-popup.detail.main.general.cms.changeLayout') : $tc('alpha-popup.detail.main.general.cms.changeLayoutEmpty') }}
+                                </sw-button>
+                            {% endblock %}
+
+                            {% block alpha_popup_cms_layout_desc_actions_designer %}
+                                <sw-button size="small" @click="openInPagebuilder">
+                                    {{ cmsPage ? $tc('alpha-popup.detail.main.general.cms.editInPagebuilder'): $tc('alpha-popup.detail.main.general.cms.editInPagebuilderEmpty') }}
+                                </sw-button>
+                            {% endblock %}
+
+                            {% block alpha_popup_cms_layout_desc_actions_remove %}
+                                <sw-button v-if="cmsPage" size="small" @click="onLayoutReset" square>
+                                    <sw-icon name="regular-trash" small />
+                                </sw-button>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    </sw-card>
+{% endblock %}

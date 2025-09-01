@@ -1,0 +1,15 @@
+{% block alpha_scroll_percentage_select %}
+
+    <div class="alpha-scroll-percentage-select">
+        {% block alpha_scroll_percentage_select_field %}
+            <sw-single-select
+                    size="medium"
+                    :options="selectValues"
+                    placeholder="0 %"
+                    label="Popup bei Erreichen von  x % der Seite öffnen "
+                    v-model:value="popup.scrollActivationPercentage">
+            </sw-single-select>
+        {% endblock %}
+    </div>
+
+{% endblock %}

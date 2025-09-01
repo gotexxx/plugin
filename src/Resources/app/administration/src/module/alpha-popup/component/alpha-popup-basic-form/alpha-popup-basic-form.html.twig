@@ -1,0 +1,71 @@
+{% block alpha_popup_basic_form %}
+    <div class="alpha-popup-basic-form">
+        <template v-if="popup !== null">
+            <sw-container columns="3fr 1fr" gap="0px 30px">
+                {% block alpha_popup_basic_form_title_field %}
+                    <sw-text-field
+                            :label="$tc('alpha-popup.detail.main.general.labelTitle')"
+                            :placeholder="placeholder(popup, 'name', $tc('alpha-popup.detail.main.general.placeholderName'))"
+                            v-model:value="popup.name"
+                            :error="popupNameError"
+                            required
+                            validation="required">
+                    </sw-text-field>
+                {% endblock %}
+
+                {% block alpha_popup_basic_form_active_field %}
+                    <sw-switch-field
+                            bordered
+                            :label="$tc('alpha-popup.detail.main.general.labelActive')"
+                            v-model:value="popup.active">
+                    </sw-switch-field>
+                {% endblock %}
+
+            </sw-container>
+
+            {% block alpha_popup_basic_form_cms_layout %}
+                <alpha-popup-cms-layout-card
+                        v-bind="{ popup, cmsPage, isLoading }">
+                </alpha-popup-cms-layout-card>
+            {% endblock %}
+            <sw-card positionIdentifier="alpha-trigger-select-card"
+                     class="alpha-trigger-select-card"
+                     :title="$tc('alpha-popup.detail.main.general.labelTrigger')">
+                {% block alpha_popup_time_delay_select %}
+                    <alpha-popup-time-delay-select>
+                    </alpha-popup-time-delay-select>
+                {% endblock %}
+                {% block alpha_popup_scroll_activation %}
+                    <alpha-popup-scroll-activation>
+                    </alpha-popup-scroll-activation>
+                {% endblock %}
+                {% block alpha_popup_js_events %}
+                    <alpha-popup-js-events
+                            :popup="popup">
+                    </alpha-popup-js-events>
+                {% endblock %}
+                {% block alpha_popup_element_selector %}
+                    <alpha-popup-element-selector
+                            :popup="popup">
+                    </alpha-popup-element-selector>
+                {% endblock %}
+            </sw-card>
+            <sw-card positionIdentifier="alpha-cookie-expire-time-select-card"
+                     class="alpha-cookie-expire-time-select-card">
+            {% block alpha_popup_cookie_expire_time_select %}
+                <alpha-popup-cookie-expire-time-select>
+                </alpha-popup-cookie-expire-time-select>
+            {% endblock %}
+            </sw-card>
+            <sw-card positionIdentifier="alpha-visual-card"
+                     class="alpha-visual-card"
+                     :title="$tc('alpha-popup.detail.main.general.labelVisualSettings')">
+                {% block alpha_popup_width_select %}
+                    <alpha-popup-width-select>
+                    </alpha-popup-width-select>
+                {% endblock %}
+            </sw-card>
+        </template>
+    </div>
+{% endblock %}
+

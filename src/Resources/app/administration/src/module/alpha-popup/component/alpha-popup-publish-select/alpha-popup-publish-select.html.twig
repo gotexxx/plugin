@@ -1,0 +1,21 @@
+{% block alpha_popup_publish_select %}
+    <sw-card position-identifier="alpha-popup-card-publish-select" class="alpha-popup-publish-select" :title="$tc('alpha-popup.detail.main.preconditions.publish.card')">
+        <h4>{{ $tc('alpha-popup.detail.main.preconditions.publish.title') }}</h4>
+
+        <sw-container columns="1fr 1fr" gap="0px 30px">
+            {% block alpha_popup_publish_select_valid_from_field %}
+            <sw-datepicker date-type="datetime"
+                           :label="$tc('alpha-popup.detail.main.preconditions.publish.labelValidFrom')"
+                           v-model:value="popup.validFrom">
+            </sw-datepicker>
+            {% endblock %}
+
+            {% block alpha_popup_publish_select_valid_until_field %}
+            <sw-datepicker date-type="datetime"
+                           :label="$tc('alpha-popup.detail.main.preconditions.publish.labelValidUntil')"
+                           v-model:value="popup.validUntil">
+            </sw-datepicker>
+            {% endblock %}
+        </sw-container>
+    </sw-card>
+{% endblock %}

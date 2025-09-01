@@ -1,0 +1,29 @@
+{% block alpha_width_select %}
+    <div class="alpha-width-select">
+        {% block alpha_width_select_field %}
+            <sw-single-select
+                    size="medium"
+                    :options="selectWidthValues"
+                    placeholder="80%"
+                    :label="$tc('alpha-popup.detail.main.general.labelPopupWidth')"
+                    v-model:value="popup.popupWidth">
+            </sw-single-select>
+        {% endblock %}
+
+        {% block alpha_width_select_individual_field %}
+            <sw-text-field
+                    v-if="popup.popupWidth == 'individual'"
+                    placeholder="123px"
+                    v-model:value="popup.popupWidthIndividual">
+            </sw-text-field>
+        {% endblock %}
+
+        {% block alpha_max_width_select_field %}
+            <sw-text-field
+                    :label="$tc('alpha-popup.detail.main.general.labelPopupMaxWidth')"
+                    placeholder="123px"
+                    v-model:value="popup.popupMaxWidth">
+            </sw-text-field>
+        {% endblock %}
+    </div>
+{% endblock %}

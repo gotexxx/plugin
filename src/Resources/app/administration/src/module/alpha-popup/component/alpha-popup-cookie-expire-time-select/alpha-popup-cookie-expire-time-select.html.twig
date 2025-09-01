@@ -1,0 +1,15 @@
+{% block alpha_cookie_expire_time_select %}
+
+        <div class="alpha-cookie-expire-time-select">
+            {% block alpha_cookie_expire_time_select_field %}
+                <sw-single-select
+                    size="medium"
+                    :options="selectValues"
+                    :placeholder="$tc('alpha-popup.detail.main.general.cookie.cookieExpireTime')"
+                    :label="$tc('alpha-popup.detail.main.general.cookie.title')"
+                    v-model:value="popup.cookieExpireDays">
+                </sw-single-select>
+            {% endblock %}
+        </div>
+
+{% endblock %}
